@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIFA Seach Engine</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <br>
+        </br>
+        <div class"text-center mt-3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/FIFA_logo_without_slogan.svg" alt="FIFA Logo" width="300">
+        </div>
+        <h1 class="text-center mt-5">FIFA Seach Engine</h1>
+        <form action="/search" method="POST" class="mt-5">
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="search_query" class="form-control" placeholder="Search..." required>
+                </div>
+                <div class="col">
+                    <select name="search_by" class="form-control" id="search_by">
+                        <option value="coach">Coach Name</option>
+                        <option value="player">Player Name</option>
+                        <option value="team">Team/Club</option>
+                        <option value="rating">Rating Score (out of 100)</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+            <div id="info_checkboxes" class="mt-3" style="display: none;">
+                <label>Select extra information you'd like to see:</label>
+                <div>
+                    <input type="checkbox" name="info" value="player_positions">
+                    <label for="player_positions">Player Positions</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="info" value="overall">
+                    <label for="overall">Overall Rating</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="info" value="height_cm">
+                    <label for="height_cm">Height in cm</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="info" value="weight_kg">
+                    <label for="weight_kg">Weight in kg</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="info" value="preferred_foot">
+                    <label for="preferred_foot">Preferred Foot</label>
+                </div>
+                <!-- Add more checkboxes here for other information -->
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('search_by').addEventListener('change', function() {
+            var info_checkboxes = document.getElementById('info_checkboxes');
+            
+            if (this.value === 'player') {
+                info_checkboxes.style.display = 'block';
+            } else {
+                info_checkboxes.style.display = 'none';
+            }
+        });
+        </script>
+</body>
+</html>
